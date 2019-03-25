@@ -1,0 +1,42 @@
+18:58:32 **** Build of configuration Release for project Rtos_countSemaphore_event ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\AbuElkasem\ECLIPSworks\Rtos_countSemaphore_event\FreeRTOS" -I"C:\Users\AbuElkasem\ECLIPSworks\Rtos_countSemaphore_event\FreeRTOS\Inc" -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Rtos_countSemaphore_event.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Rtos_countSemaphore_event.map -mmcu=atmega32 -o "Rtos_countSemaphore_event.elf"  ./FreeRTOS/Src/PollQ.o ./FreeRTOS/Src/croutine.o ./FreeRTOS/Src/event_groups.o ./FreeRTOS/Src/heap_1.o ./FreeRTOS/Src/integer.o ./FreeRTOS/Src/list.o ./FreeRTOS/Src/port.o ./FreeRTOS/Src/queue.o ./FreeRTOS/Src/tasks.o  ./main.o   
+Finished building target: Rtos_countSemaphore_event.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Rtos_countSemaphore_event.elf  >"Rtos_countSemaphore_event.lss"
+Finished building: Rtos_countSemaphore_event.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Rtos_countSemaphore_event.elf  "Rtos_countSemaphore_event.hex"
+Finished building: Rtos_countSemaphore_event.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Rtos_countSemaphore_event.elf  "Rtos_countSemaphore_event.eep"
+Finished building: Rtos_countSemaphore_event.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Rtos_countSemaphore_event.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8654 bytes (26.4% Full)
+(.text + .data + .bootloader)
+
+Data:       1690 bytes (82.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:58:33 Build Finished (took 592ms)
+

@@ -1,0 +1,37 @@
+19:30:38 **** Incremental Build of configuration Release for project Rtos_binarySemaphore_event ****
+make all 
+Building target: Rtos_binarySemaphore_event.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Rtos_binarySemaphore_event.map -mmcu=atmega32 -o "Rtos_binarySemaphore_event.elf"  ./FreeRTOS/Src/PollQ.o ./FreeRTOS/Src/croutine.o ./FreeRTOS/Src/event_groups.o ./FreeRTOS/Src/heap_1.o ./FreeRTOS/Src/integer.o ./FreeRTOS/Src/list.o ./FreeRTOS/Src/port.o ./FreeRTOS/Src/queue.o ./FreeRTOS/Src/tasks.o  ./main.o   
+Finished building target: Rtos_binarySemaphore_event.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Rtos_binarySemaphore_event.elf  >"Rtos_binarySemaphore_event.lss"
+Finished building: Rtos_binarySemaphore_event.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Rtos_binarySemaphore_event.elf  "Rtos_binarySemaphore_event.hex"
+Finished building: Rtos_binarySemaphore_event.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Rtos_binarySemaphore_event.elf  "Rtos_binarySemaphore_event.eep"
+Finished building: Rtos_binarySemaphore_event.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Rtos_binarySemaphore_event.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8656 bytes (26.4% Full)
+(.text + .data + .bootloader)
+
+Data:       1690 bytes (82.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+19:30:39 Build Finished (took 1s.338ms)
+

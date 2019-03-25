@@ -1,0 +1,75 @@
+18:49:00 **** Incremental Build of configuration Debug for project Rtos_EventGroup ****
+make all 
+Building file: ../FreeRTOS/Src/PollQ.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"FreeRTOS/Src/PollQ.d" -MT"FreeRTOS/Src/PollQ.d" -c -o "FreeRTOS/Src/PollQ.o" "../FreeRTOS/Src/PollQ.c"
+../FreeRTOS/Src/PollQ.c:99:22: error: FreeRTOS.h: No such file or directory
+../FreeRTOS/Src/PollQ.c:100:18: error: task.h: No such file or directory
+../FreeRTOS/Src/PollQ.c:101:19: error: queue.h: No such file or directory
+../FreeRTOS/Src/PollQ.c:104:19: error: PollQ.h: No such file or directory
+../FreeRTOS/Src/PollQ.c:115: warning: type defaults to 'int' in declaration of 'portTASK_FUNCTION_PROTO'
+../FreeRTOS/Src/PollQ.c:115: warning: parameter names (without types) in function declaration
+../FreeRTOS/Src/PollQ.c:118: warning: type defaults to 'int' in declaration of 'portTASK_FUNCTION_PROTO'
+../FreeRTOS/Src/PollQ.c:118: warning: parameter names (without types) in function declaration
+../FreeRTOS/Src/PollQ.c:122: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xPollingConsumerCount'
+../FreeRTOS/Src/PollQ.c:126: error: expected ')' before 'uxPriority'
+../FreeRTOS/Src/PollQ.c:148: warning: return type defaults to 'int'
+../FreeRTOS/Src/PollQ.c: In function 'portTASK_FUNCTION':
+../FreeRTOS/Src/PollQ.c:148: warning: type of 'vPolledQueueProducer' defaults to 'int'
+../FreeRTOS/Src/PollQ.c:148: warning: type of 'pvParameters' defaults to 'int'
+../FreeRTOS/Src/PollQ.c:149: error: 'uint16_t' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:149: error: (Each undeclared identifier is reported only once
+../FreeRTOS/Src/PollQ.c:149: error: for each function it appears in.)
+../FreeRTOS/Src/PollQ.c:149: error: expected ';' before 'usValue'
+../FreeRTOS/Src/PollQ.c:150: error: 'BaseType_t' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:150: error: expected ';' before 'xError'
+../FreeRTOS/Src/PollQ.c:154: error: 'xLoop' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:154: error: expected ')' before numeric constant
+../FreeRTOS/Src/PollQ.c:157: warning: implicit declaration of function 'xQueueSend'
+../FreeRTOS/Src/PollQ.c:157: error: 'QueueHandle_t' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:157: error: expected expression before ')' token
+../FreeRTOS/Src/PollQ.c:157: error: 'usValue' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:157: error: 'TickType_t' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:157: error: expected ')' before numeric constant
+../FreeRTOS/Src/PollQ.c:157: error: 'pdPASS' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:161: error: 'xError' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:161: error: 'pdTRUE' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:165: error: 'pdFALSE' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:169: warning: implicit declaration of function 'portENTER_CRITICAL'
+../FreeRTOS/Src/PollQ.c:170: error: 'xPollingProducerCount' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:171: warning: implicit declaration of function 'portEXIT_CRITICAL'
+../FreeRTOS/Src/PollQ.c:181: warning: implicit declaration of function 'vTaskDelay'
+../FreeRTOS/Src/PollQ.c:181: error: expected ')' before numeric constant
+../FreeRTOS/Src/PollQ.c: At top level:
+../FreeRTOS/Src/PollQ.c:187: warning: return type defaults to 'int'
+../FreeRTOS/Src/PollQ.c:186: error: redefinition of 'portTASK_FUNCTION'
+../FreeRTOS/Src/PollQ.c:148: error: previous definition of 'portTASK_FUNCTION' was here
+../FreeRTOS/Src/PollQ.c: In function 'portTASK_FUNCTION':
+../FreeRTOS/Src/PollQ.c:187: warning: type of 'vPolledQueueConsumer' defaults to 'int'
+../FreeRTOS/Src/PollQ.c:187: warning: type of 'pvParameters' defaults to 'int'
+../FreeRTOS/Src/PollQ.c:188: error: 'uint16_t' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:188: error: expected ';' before 'usData'
+../FreeRTOS/Src/PollQ.c:189: error: 'BaseType_t' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:189: error: expected ';' before 'xError'
+../FreeRTOS/Src/PollQ.c:194: warning: implicit declaration of function 'uxQueueMessagesWaiting'
+../FreeRTOS/Src/PollQ.c:194: error: 'QueueHandle_t' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:194: error: expected expression before ')' token
+../FreeRTOS/Src/PollQ.c:196: warning: implicit declaration of function 'xQueueReceive'
+../FreeRTOS/Src/PollQ.c:196: error: expected expression before ')' token
+../FreeRTOS/Src/PollQ.c:196: error: 'usData' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:196: error: 'TickType_t' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:196: error: expected ')' before numeric constant
+../FreeRTOS/Src/PollQ.c:196: error: 'pdPASS' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:198: error: 'usExpectedValue' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:202: error: 'xError' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:202: error: 'pdTRUE' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:210: error: 'pdFALSE' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:215: error: 'xPollingConsumerCount' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c:227: error: expected ')' before numeric constant
+../FreeRTOS/Src/PollQ.c:227: error: 'portTICK_PERIOD_MS' undeclared (first use in this function)
+../FreeRTOS/Src/PollQ.c: At top level:
+../FreeRTOS/Src/PollQ.c:233: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xArePollingQueuesStillRunning'
+make: *** [FreeRTOS/Src/PollQ.o] Error 1
+
+18:49:01 Build Finished (took 515ms)
+

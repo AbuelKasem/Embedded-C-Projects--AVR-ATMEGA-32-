@@ -1,0 +1,20 @@
+00:20:12 **** Incremental Build of configuration Release for project buzzer ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 buzzer.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     136 bytes (0.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+00:20:12 Build Finished (took 130ms)
+

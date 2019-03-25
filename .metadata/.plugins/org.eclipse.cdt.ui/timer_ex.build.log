@@ -1,0 +1,7 @@
+02:19:37 **** Clean-only build of configuration Release for project timer_ex ****
+make clean 
+rm -rf  timer_ex.hex  ./Timer0.o ./main.o  timer_ex.eep  sizedummy  timer_ex.lss  ./Timer0.d ./main.d  timer_ex.elf
+ 
+
+02:19:37 Build Finished (took 238ms)
+

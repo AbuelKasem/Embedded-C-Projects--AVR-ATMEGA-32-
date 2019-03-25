@@ -1,0 +1,20 @@
+00:25:19 **** Incremental Build of configuration Release for project Rtos_binarySemaphore_Resource ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Rtos_binarySemaphore_Resource.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8932 bytes (27.3% Full)
+(.text + .data + .bootloader)
+
+Data:       1742 bytes (85.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+00:25:20 Build Finished (took 924ms)
+

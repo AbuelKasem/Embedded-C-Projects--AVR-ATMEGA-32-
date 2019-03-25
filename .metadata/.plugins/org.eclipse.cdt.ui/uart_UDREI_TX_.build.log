@@ -1,0 +1,42 @@
+19:30:45 **** Incremental Build of configuration Release for project uart_UDREI_TX_ ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: uart_UDREI_TX_.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,uart_UDREI_TX_.map -mmcu=atmega32 -o "uart_UDREI_TX_.elf"  ./LCD_MA.o ./UART_MA_Interrupt.o ./main.o   
+Finished building target: uart_UDREI_TX_.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S uart_UDREI_TX_.elf  >"uart_UDREI_TX_.lss"
+Finished building: uart_UDREI_TX_.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex uart_UDREI_TX_.elf  "uart_UDREI_TX_.hex"
+Finished building: uart_UDREI_TX_.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex uart_UDREI_TX_.elf  "uart_UDREI_TX_.eep"
+Finished building: uart_UDREI_TX_.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 uart_UDREI_TX_.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     932 bytes (2.8% Full)
+(.text + .data + .bootloader)
+
+Data:         16 bytes (0.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+19:30:45 Build Finished (took 468ms)
+

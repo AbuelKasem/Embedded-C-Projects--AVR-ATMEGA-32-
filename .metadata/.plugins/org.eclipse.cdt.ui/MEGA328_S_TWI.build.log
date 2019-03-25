@@ -1,0 +1,47 @@
+20:06:35 **** Build of configuration Release for project MEGA328_S_TWI ****
+make all 
+Building file: ../Main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"Main.d" -MT"Main.d" -c -o "Main.o" "../Main.c"
+Finished building: ../Main.c
+ 
+Building file: ../TWI.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"TWI.d" -MT"TWI.d" -c -o "TWI.o" "../TWI.c"
+Finished building: ../TWI.c
+ 
+Building target: MEGA328_S_TWI.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MEGA328_S_TWI.map -mmcu=atmega328p -o "MEGA328_S_TWI.elf"  ./Main.o ./TWI.o   
+Finished building target: MEGA328_S_TWI.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MEGA328_S_TWI.elf  >"MEGA328_S_TWI.lss"
+Finished building: MEGA328_S_TWI.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MEGA328_S_TWI.elf  "MEGA328_S_TWI.hex"
+Finished building: MEGA328_S_TWI.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex MEGA328_S_TWI.elf  "MEGA328_S_TWI.eep"
+Finished building: MEGA328_S_TWI.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p MEGA328_S_TWI.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:     428 bytes (1.3% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:06:36 Build Finished (took 696ms)
+

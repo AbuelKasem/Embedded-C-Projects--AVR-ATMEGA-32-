@@ -1,0 +1,37 @@
+11:26:32 **** Incremental Build of configuration Release for project arduino_S1 ****
+make all 
+Building target: arduino_S1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,arduino_S1.map -mmcu=atmega328p -o "arduino_S1.elf"  ./main.o   
+Finished building target: arduino_S1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S arduino_S1.elf  >"arduino_S1.lss"
+Finished building: arduino_S1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex arduino_S1.elf  "arduino_S1.hex"
+Finished building: arduino_S1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex arduino_S1.elf  "arduino_S1.eep"
+Finished building: arduino_S1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p arduino_S1.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:     192 bytes (0.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+11:26:32 Build Finished (took 273ms)
+

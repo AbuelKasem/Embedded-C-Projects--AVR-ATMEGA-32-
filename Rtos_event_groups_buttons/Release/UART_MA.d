@@ -1,0 +1,1 @@
+UART_MA.d UART_MA.o: ../UART_MA.c

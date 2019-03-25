@@ -1,0 +1,42 @@
+19:27:34 **** Build of configuration Release for project Rtos_event_groups_buttons_Alarm ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -I"C:\Users\AbuElkasem\ECLIPSworks\Rtos_event_groups_buttons_Alarm\FreeRTOS" -I"C:\Users\AbuElkasem\ECLIPSworks\Rtos_event_groups_buttons_Alarm\FreeRTOS\Inc" -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Rtos_event_groups_buttons_Alarm.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Rtos_event_groups_buttons_Alarm.map -mmcu=atmega32 -o "Rtos_event_groups_buttons_Alarm.elf"  ./FreeRTOS/Src/PollQ.o ./FreeRTOS/Src/croutine.o ./FreeRTOS/Src/event_groups.o ./FreeRTOS/Src/heap_1.o ./FreeRTOS/Src/integer.o ./FreeRTOS/Src/list.o ./FreeRTOS/Src/port.o ./FreeRTOS/Src/queue.o ./FreeRTOS/Src/tasks.o  ./UART_MA.o ./main.o ./usart_driver.o   
+Finished building target: Rtos_event_groups_buttons_Alarm.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Rtos_event_groups_buttons_Alarm.elf  >"Rtos_event_groups_buttons_Alarm.lss"
+Finished building: Rtos_event_groups_buttons_Alarm.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Rtos_event_groups_buttons_Alarm.elf  "Rtos_event_groups_buttons_Alarm.hex"
+Finished building: Rtos_event_groups_buttons_Alarm.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Rtos_event_groups_buttons_Alarm.elf  "Rtos_event_groups_buttons_Alarm.eep"
+Finished building: Rtos_event_groups_buttons_Alarm.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Rtos_event_groups_buttons_Alarm.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8842 bytes (27.0% Full)
+(.text + .data + .bootloader)
+
+Data:       1692 bytes (82.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+19:27:34 Build Finished (took 593ms)
+

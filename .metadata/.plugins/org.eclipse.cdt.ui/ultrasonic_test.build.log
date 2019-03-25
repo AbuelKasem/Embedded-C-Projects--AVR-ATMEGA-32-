@@ -1,0 +1,42 @@
+18:15:38 **** Incremental Build of configuration Release for project ultrasonic_test ****
+make all 
+Building file: ../ultrasonic_HCSR04.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"ultrasonic_HCSR04.d" -MT"ultrasonic_HCSR04.d" -c -o "ultrasonic_HCSR04.o" "../ultrasonic_HCSR04.c"
+Finished building: ../ultrasonic_HCSR04.c
+ 
+Building target: ultrasonic_test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ultrasonic_test.map -mmcu=atmega32 -o "ultrasonic_test.elf"  ./LCD_MA.o ./main.o ./timer2_normal.o ./ultrasonic_HCSR04.o   
+Finished building target: ultrasonic_test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ultrasonic_test.elf  >"ultrasonic_test.lss"
+Finished building: ultrasonic_test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ultrasonic_test.elf  "ultrasonic_test.hex"
+Finished building: ultrasonic_test.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex ultrasonic_test.elf  "ultrasonic_test.eep"
+Finished building: ultrasonic_test.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ultrasonic_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4250 bytes (13.0% Full)
+(.text + .data + .bootloader)
+
+Data:        288 bytes (14.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:15:39 Build Finished (took 514ms)
+

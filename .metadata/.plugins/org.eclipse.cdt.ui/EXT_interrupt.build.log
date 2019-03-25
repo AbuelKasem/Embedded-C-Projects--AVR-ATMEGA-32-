@@ -1,0 +1,42 @@
+01:09:49 **** Incremental Build of configuration Release for project EXT_interrupt ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: EXT_interrupt.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,EXT_interrupt.map -mmcu=atmega32 -o "EXT_interrupt.elf"  ./LCD_MA.o ./main.o   
+Finished building target: EXT_interrupt.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S EXT_interrupt.elf  >"EXT_interrupt.lss"
+Finished building: EXT_interrupt.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex EXT_interrupt.elf  "EXT_interrupt.hex"
+Finished building: EXT_interrupt.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex EXT_interrupt.elf  "EXT_interrupt.eep"
+Finished building: EXT_interrupt.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 EXT_interrupt.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     758 bytes (2.3% Full)
+(.text + .data + .bootloader)
+
+Data:          2 bytes (0.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+01:09:50 Build Finished (took 1s.159ms)
+

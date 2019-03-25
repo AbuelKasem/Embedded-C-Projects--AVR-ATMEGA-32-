@@ -1,0 +1,20 @@
+18:17:19 **** Incremental Build of configuration Release for project obstcle_sensor ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 obstcle_sensor.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4316 bytes (13.2% Full)
+(.text + .data + .bootloader)
+
+Data:        282 bytes (13.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:17:19 Build Finished (took 172ms)
+

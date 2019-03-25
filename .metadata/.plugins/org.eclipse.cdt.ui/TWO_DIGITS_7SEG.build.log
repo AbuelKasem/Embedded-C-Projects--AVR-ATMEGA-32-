@@ -1,0 +1,20 @@
+16:00:30 **** Incremental Build of configuration Release for project TWO_DIGITS_7SEG ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TWO_DIGITS_7SEG.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     290 bytes (0.9% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:00:31 Build Finished (took 468ms)
+

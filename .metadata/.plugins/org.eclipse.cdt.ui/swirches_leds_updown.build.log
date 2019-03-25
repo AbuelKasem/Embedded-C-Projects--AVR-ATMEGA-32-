@@ -1,0 +1,42 @@
+01:40:29 **** Incremental Build of configuration Release for project swirches_leds_updown ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: swirches_leds_updown.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,swirches_leds_updown.map -mmcu=atmega32 -o "swirches_leds_updown.elf"  ./main.o   
+Finished building target: swirches_leds_updown.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S swirches_leds_updown.elf  >"swirches_leds_updown.lss"
+Finished building: swirches_leds_updown.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex swirches_leds_updown.elf  "swirches_leds_updown.hex"
+Finished building: swirches_leds_updown.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex swirches_leds_updown.elf  "swirches_leds_updown.eep"
+Finished building: swirches_leds_updown.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 swirches_leds_updown.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     198 bytes (0.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+01:40:29 Build Finished (took 470ms)
+

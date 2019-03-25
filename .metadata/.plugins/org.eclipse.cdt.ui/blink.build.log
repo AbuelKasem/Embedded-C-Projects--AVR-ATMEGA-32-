@@ -1,0 +1,20 @@
+22:30:49 **** Incremental Build of configuration Release for project blink ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 blink.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     156 bytes (0.5% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+22:30:50 Build Finished (took 265ms)
+

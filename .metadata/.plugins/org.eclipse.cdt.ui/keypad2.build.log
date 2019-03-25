@@ -1,0 +1,42 @@
+20:12:18 **** Incremental Build of configuration Release for project keypad2 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: keypad2.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,keypad2.map -mmcu=atmega32 -o "keypad2.elf"  ./main.o   
+Finished building target: keypad2.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S keypad2.elf  >"keypad2.lss"
+Finished building: keypad2.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex keypad2.elf  "keypad2.hex"
+Finished building: keypad2.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex keypad2.elf  "keypad2.eep"
+Finished building: keypad2.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 keypad2.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     446 bytes (1.4% Full)
+(.text + .data + .bootloader)
+
+Data:         12 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:12:19 Build Finished (took 896ms)
+

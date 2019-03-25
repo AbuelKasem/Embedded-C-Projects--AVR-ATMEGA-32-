@@ -1,0 +1,42 @@
+10:38:29 **** Incremental Build of configuration Release for project arduino ****
+make all 
+Building file: ../vvvv.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"vvvv.d" -MT"vvvv.d" -c -o "vvvv.o" "../vvvv.c"
+Finished building: ../vvvv.c
+ 
+Building target: arduino.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,arduino.map -mmcu=atmega328p -o "arduino.elf"  ./vvvv.o   
+Finished building target: arduino.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S arduino.elf  >"arduino.lss"
+Finished building: arduino.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex arduino.elf  "arduino.hex"
+Finished building: arduino.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex arduino.elf  "arduino.eep"
+Finished building: arduino.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p arduino.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:     162 bytes (0.5% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+10:38:30 Build Finished (took 825ms)
+

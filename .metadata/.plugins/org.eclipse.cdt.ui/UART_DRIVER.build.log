@@ -1,0 +1,42 @@
+21:31:29 **** Incremental Build of configuration Release for project UART_DRIVER ****
+make all 
+Building file: ../UART_DR.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"UART_DR.d" -MT"UART_DR.d" -c -o "UART_DR.o" "../UART_DR.c"
+Finished building: ../UART_DR.c
+ 
+Building target: UART_DRIVER.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,UART_DRIVER.map -mmcu=atmega32 -o "UART_DRIVER.elf"  ./UART_DR.o ./main.o   
+Finished building target: UART_DRIVER.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S UART_DRIVER.elf  >"UART_DRIVER.lss"
+Finished building: UART_DRIVER.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex UART_DRIVER.elf  "UART_DRIVER.hex"
+Finished building: UART_DRIVER.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex UART_DRIVER.elf  "UART_DRIVER.eep"
+Finished building: UART_DRIVER.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 UART_DRIVER.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     232 bytes (0.7% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+21:31:30 Build Finished (took 713ms)
+

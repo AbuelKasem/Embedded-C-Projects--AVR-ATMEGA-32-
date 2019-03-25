@@ -1,0 +1,44 @@
+23:32:22 **** Incremental Build of configuration Release for project timer_normal_pwm ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:22: warning: unused variable 'j'
+Finished building: ../main.c
+ 
+Building target: timer_normal_pwm.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,timer_normal_pwm.map -mmcu=atmega32 -o "timer_normal_pwm.elf"  ./LCD_MA.o ./main.o ./timer2_normal.o   
+Finished building target: timer_normal_pwm.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S timer_normal_pwm.elf  >"timer_normal_pwm.lss"
+Finished building: timer_normal_pwm.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex timer_normal_pwm.elf  "timer_normal_pwm.hex"
+Finished building: timer_normal_pwm.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex timer_normal_pwm.elf  "timer_normal_pwm.eep"
+Finished building: timer_normal_pwm.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 timer_normal_pwm.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     638 bytes (1.9% Full)
+(.text + .data + .bootloader)
+
+Data:          6 bytes (0.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:32:22 Build Finished (took 434ms)
+

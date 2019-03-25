@@ -1,0 +1,45 @@
+23:42:15 **** Incremental Build of configuration Release for project in1_ex1 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:14: warning: unused variable 'y'
+../main.c:14: warning: unused variable 'x'
+Finished building: ../main.c
+ 
+Building target: in1_ex1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,in1_ex1.map -mmcu=atmega32 -o "in1_ex1.elf"  ./main.o   
+Finished building target: in1_ex1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S in1_ex1.elf  >"in1_ex1.lss"
+Finished building: in1_ex1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex in1_ex1.elf  "in1_ex1.hex"
+Finished building: in1_ex1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex in1_ex1.elf  "in1_ex1.eep"
+Finished building: in1_ex1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 in1_ex1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     160 bytes (0.5% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:42:15 Build Finished (took 583ms)
+

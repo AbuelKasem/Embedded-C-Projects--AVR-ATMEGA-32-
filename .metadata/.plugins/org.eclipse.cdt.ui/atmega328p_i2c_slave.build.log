@@ -1,0 +1,42 @@
+00:30:17 **** Incremental Build of configuration Release for project atmega328p_i2c_slave ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: atmega328p_i2c_slave.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,atmega328p_i2c_slave.map -mmcu=atmega328p -o "atmega328p_i2c_slave.elf"  ./I2C_MA.o ./main.o   
+Finished building target: atmega328p_i2c_slave.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S atmega328p_i2c_slave.elf  >"atmega328p_i2c_slave.lss"
+Finished building: atmega328p_i2c_slave.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex atmega328p_i2c_slave.elf  "atmega328p_i2c_slave.hex"
+Finished building: atmega328p_i2c_slave.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex atmega328p_i2c_slave.elf  "atmega328p_i2c_slave.eep"
+Finished building: atmega328p_i2c_slave.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p atmega328p_i2c_slave.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:     534 bytes (1.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+00:30:18 Build Finished (took 468ms)
+

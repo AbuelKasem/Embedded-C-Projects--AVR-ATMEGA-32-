@@ -1,0 +1,20 @@
+00:22:01 **** Incremental Build of configuration Release for project uart_transmit_interrupt ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 uart_transmit_interrupt.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     782 bytes (2.4% Full)
+(.text + .data + .bootloader)
+
+Data:         27 bytes (1.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+00:22:01 Build Finished (took 134ms)
+

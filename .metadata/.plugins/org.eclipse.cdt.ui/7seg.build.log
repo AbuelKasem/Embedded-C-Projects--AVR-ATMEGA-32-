@@ -1,0 +1,42 @@
+02:12:07 **** Incremental Build of configuration Release for project 7seg ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: 7seg.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,7seg.map -mmcu=atmega32 -o "7seg.elf"  ./main.o   
+Finished building target: 7seg.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S 7seg.elf  >"7seg.lss"
+Finished building: 7seg.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex 7seg.elf  "7seg.hex"
+Finished building: 7seg.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex 7seg.elf  "7seg.eep"
+Finished building: 7seg.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 7seg.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     238 bytes (0.7% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+02:12:10 Build Finished (took 3s.242ms)
+

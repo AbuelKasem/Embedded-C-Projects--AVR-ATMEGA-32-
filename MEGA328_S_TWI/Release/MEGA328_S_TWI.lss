@@ -1,0 +1,189 @@
+
+MEGA328_S_TWI.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001ac  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 40 00 	call	0x80	; 0x80 <main>
+  78:	0c 94 d4 00 	jmp	0x1a8	; 0x1a8 <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <main>:
+  80:	0e 94 50 00 	call	0xa0	; 0xa0 <TWI_init>
+  84:	25 9a       	sbi	0x04, 5	; 4
+  86:	82 e0       	ldi	r24, 0x02	; 2
+  88:	0e 94 59 00 	call	0xb2	; 0xb2 <TWI_address>
+  8c:	0e 94 ac 00 	call	0x158	; 0x158 <TWI_recieve_data_ACK>
+  90:	81 36       	cpi	r24, 0x61	; 97
+  92:	11 f4       	brne	.+4      	; 0x98 <main+0x18>
+  94:	2d 9a       	sbi	0x05, 5	; 5
+  96:	fa cf       	rjmp	.-12     	; 0x8c <main+0xc>
+  98:	82 36       	cpi	r24, 0x62	; 98
+  9a:	c1 f7       	brne	.-16     	; 0x8c <main+0xc>
+  9c:	2d 98       	cbi	0x05, 5	; 5
+  9e:	f6 cf       	rjmp	.-20     	; 0x8c <main+0xc>
+
+000000a0 <TWI_init>:
+  a0:	88 e4       	ldi	r24, 0x48	; 72
+  a2:	80 93 b8 00 	sts	0x00B8, r24
+  a6:	10 92 b9 00 	sts	0x00B9, r1
+  aa:	84 e4       	ldi	r24, 0x44	; 68
+  ac:	80 93 bc 00 	sts	0x00BC, r24
+  b0:	08 95       	ret
+
+000000b2 <TWI_address>:
+  b2:	90 e0       	ldi	r25, 0x00	; 0
+  b4:	88 0f       	add	r24, r24
+  b6:	99 1f       	adc	r25, r25
+  b8:	80 93 ba 00 	sts	0x00BA, r24
+  bc:	08 95       	ret
+
+000000be <TWI_start>:
+  be:	84 ea       	ldi	r24, 0xA4	; 164
+  c0:	80 93 bc 00 	sts	0x00BC, r24
+  c4:	80 91 bc 00 	lds	r24, 0x00BC
+  c8:	87 fd       	sbrc	r24, 7
+  ca:	0a c0       	rjmp	.+20     	; 0xe0 <TWI_start+0x22>
+  cc:	80 91 b9 00 	lds	r24, 0x00B9
+  d0:	88 7f       	andi	r24, 0xF8	; 248
+  d2:	88 30       	cpi	r24, 0x08	; 8
+  d4:	b9 f7       	brne	.-18     	; 0xc4 <TWI_start+0x6>
+  d6:	80 91 b9 00 	lds	r24, 0x00B9
+  da:	88 7f       	andi	r24, 0xF8	; 248
+  dc:	80 31       	cpi	r24, 0x10	; 16
+  de:	91 f7       	brne	.-28     	; 0xc4 <TWI_start+0x6>
+  e0:	08 95       	ret
+
+000000e2 <TWI_send_DeviceAddress_Read>:
+  e2:	88 0f       	add	r24, r24
+  e4:	81 60       	ori	r24, 0x01	; 1
+  e6:	80 93 bb 00 	sts	0x00BB, r24
+  ea:	84 ec       	ldi	r24, 0xC4	; 196
+  ec:	80 93 bc 00 	sts	0x00BC, r24
+  f0:	80 91 bc 00 	lds	r24, 0x00BC
+  f4:	87 fd       	sbrc	r24, 7
+  f6:	05 c0       	rjmp	.+10     	; 0x102 <TWI_send_DeviceAddress_Read+0x20>
+  f8:	80 91 b9 00 	lds	r24, 0x00B9
+  fc:	88 7f       	andi	r24, 0xF8	; 248
+  fe:	80 34       	cpi	r24, 0x40	; 64
+ 100:	b9 f7       	brne	.-18     	; 0xf0 <TWI_send_DeviceAddress_Read+0xe>
+ 102:	08 95       	ret
+
+00000104 <TWI_send_DeviceAddress_Write>:
+ 104:	90 e0       	ldi	r25, 0x00	; 0
+ 106:	88 0f       	add	r24, r24
+ 108:	99 1f       	adc	r25, r25
+ 10a:	80 93 bb 00 	sts	0x00BB, r24
+ 10e:	84 e8       	ldi	r24, 0x84	; 132
+ 110:	80 93 bc 00 	sts	0x00BC, r24
+ 114:	80 91 bc 00 	lds	r24, 0x00BC
+ 118:	87 fd       	sbrc	r24, 7
+ 11a:	05 c0       	rjmp	.+10     	; 0x126 <TWI_send_DeviceAddress_Write+0x22>
+ 11c:	80 91 b9 00 	lds	r24, 0x00B9
+ 120:	88 7f       	andi	r24, 0xF8	; 248
+ 122:	88 31       	cpi	r24, 0x18	; 24
+ 124:	b9 f7       	brne	.-18     	; 0x114 <TWI_send_DeviceAddress_Write+0x10>
+ 126:	08 95       	ret
+
+00000128 <TWI_send_data>:
+ 128:	80 93 bb 00 	sts	0x00BB, r24
+ 12c:	84 e8       	ldi	r24, 0x84	; 132
+ 12e:	80 93 bc 00 	sts	0x00BC, r24
+ 132:	80 91 bc 00 	lds	r24, 0x00BC
+ 136:	87 fd       	sbrc	r24, 7
+ 138:	0a c0       	rjmp	.+20     	; 0x14e <TWI_send_data+0x26>
+ 13a:	80 91 b9 00 	lds	r24, 0x00B9
+ 13e:	88 7f       	andi	r24, 0xF8	; 248
+ 140:	88 32       	cpi	r24, 0x28	; 40
+ 142:	b9 f7       	brne	.-18     	; 0x132 <TWI_send_data+0xa>
+ 144:	80 91 b9 00 	lds	r24, 0x00B9
+ 148:	88 7f       	andi	r24, 0xF8	; 248
+ 14a:	88 3b       	cpi	r24, 0xB8	; 184
+ 14c:	91 f7       	brne	.-28     	; 0x132 <TWI_send_data+0xa>
+ 14e:	08 95       	ret
+
+00000150 <TWI_stop>:
+ 150:	84 ed       	ldi	r24, 0xD4	; 212
+ 152:	80 93 bc 00 	sts	0x00BC, r24
+ 156:	08 95       	ret
+
+00000158 <TWI_recieve_data_ACK>:
+ 158:	80 91 bc 00 	lds	r24, 0x00BC
+ 15c:	87 fd       	sbrc	r24, 7
+ 15e:	0a c0       	rjmp	.+20     	; 0x174 <TWI_recieve_data_ACK+0x1c>
+ 160:	80 91 b9 00 	lds	r24, 0x00B9
+ 164:	88 7f       	andi	r24, 0xF8	; 248
+ 166:	80 38       	cpi	r24, 0x80	; 128
+ 168:	b9 f7       	brne	.-18     	; 0x158 <TWI_recieve_data_ACK>
+ 16a:	80 91 b9 00 	lds	r24, 0x00B9
+ 16e:	88 7f       	andi	r24, 0xF8	; 248
+ 170:	80 35       	cpi	r24, 0x50	; 80
+ 172:	91 f7       	brne	.-28     	; 0x158 <TWI_recieve_data_ACK>
+ 174:	84 ec       	ldi	r24, 0xC4	; 196
+ 176:	80 93 bc 00 	sts	0x00BC, r24
+ 17a:	80 91 bb 00 	lds	r24, 0x00BB
+ 17e:	08 95       	ret
+
+00000180 <TWI_recieve_data_NACK>:
+ 180:	80 91 bc 00 	lds	r24, 0x00BC
+ 184:	87 fd       	sbrc	r24, 7
+ 186:	0a c0       	rjmp	.+20     	; 0x19c <TWI_recieve_data_NACK+0x1c>
+ 188:	80 91 b9 00 	lds	r24, 0x00B9
+ 18c:	88 7f       	andi	r24, 0xF8	; 248
+ 18e:	88 38       	cpi	r24, 0x88	; 136
+ 190:	b9 f7       	brne	.-18     	; 0x180 <TWI_recieve_data_NACK>
+ 192:	80 91 b9 00 	lds	r24, 0x00B9
+ 196:	88 7f       	andi	r24, 0xF8	; 248
+ 198:	88 35       	cpi	r24, 0x58	; 88
+ 19a:	91 f7       	brne	.-28     	; 0x180 <TWI_recieve_data_NACK>
+ 19c:	84 e8       	ldi	r24, 0x84	; 132
+ 19e:	80 93 bc 00 	sts	0x00BC, r24
+ 1a2:	80 91 bb 00 	lds	r24, 0x00BB
+ 1a6:	08 95       	ret
+
+000001a8 <_exit>:
+ 1a8:	f8 94       	cli
+
+000001aa <__stop_program>:
+ 1aa:	ff cf       	rjmp	.-2      	; 0x1aa <__stop_program>

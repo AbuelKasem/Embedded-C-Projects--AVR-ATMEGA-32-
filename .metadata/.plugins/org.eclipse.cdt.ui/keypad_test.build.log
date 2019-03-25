@@ -1,0 +1,46 @@
+19:25:07 **** Incremental Build of configuration Release for project keypad_test ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:12: warning: unused variable 'n3'
+../main.c:12: warning: unused variable 'n2'
+../main.c:12: warning: unused variable 'n1'
+Finished building: ../main.c
+ 
+Building target: keypad_test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,keypad_test.map -mmcu=atmega32 -o "keypad_test.elf"  ./main.o   
+Finished building target: keypad_test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S keypad_test.elf  >"keypad_test.lss"
+Finished building: keypad_test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex keypad_test.elf  "keypad_test.hex"
+Finished building: keypad_test.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex keypad_test.elf  "keypad_test.eep"
+Finished building: keypad_test.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 keypad_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     214 bytes (0.7% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+19:25:07 Build Finished (took 448ms)
+

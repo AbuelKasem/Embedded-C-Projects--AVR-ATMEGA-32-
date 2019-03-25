@@ -1,0 +1,20 @@
+22:22:37 **** Build of configuration Release for project Rtos_Message_Queue ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Rtos_Message_Queue.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8824 bytes (26.9% Full)
+(.text + .data + .bootloader)
+
+Data:       1690 bytes (82.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+22:22:37 Build Finished (took 432ms)
+

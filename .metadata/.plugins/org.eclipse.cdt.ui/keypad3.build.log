@@ -1,0 +1,20 @@
+16:00:36 **** Incremental Build of configuration Release for project keypad3 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 keypad3.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     408 bytes (1.2% Full)
+(.text + .data + .bootloader)
+
+Data:          6 bytes (0.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:00:36 Build Finished (took 187ms)
+

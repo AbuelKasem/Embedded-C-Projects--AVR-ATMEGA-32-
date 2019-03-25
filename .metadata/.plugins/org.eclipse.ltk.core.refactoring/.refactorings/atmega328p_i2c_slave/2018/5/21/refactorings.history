@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;atmega328p_i2c_slave/I2C_MA.c&apos; to &apos;I2C_MA_SLAVE.c&apos;" description="Rename resource &apos;I2C_MA.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="I2C_MA.c" name="I2C_MA_SLAVE.c" stamp="1526925475400" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;atmega328p_i2c_slave/I2C_MA.h&apos; to &apos;I2C_MA_SLAVE.h&apos;" description="Rename resource &apos;I2C_MA.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="I2C_MA.h" name="I2C_MA_SLAVE.h" stamp="1526925487422" updateReferences="true"/>
+</session>

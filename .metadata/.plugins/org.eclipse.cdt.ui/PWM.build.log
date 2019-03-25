@@ -1,0 +1,47 @@
+20:48:07 **** Build of configuration Release for project PWM ****
+make all 
+Building file: ../PWM.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"PWM.d" -MT"PWM.d" -c -o "PWM.o" "../PWM.c"
+Finished building: ../PWM.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: PWM.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,PWM.map -mmcu=atmega32 -o "PWM.elf"  ./PWM.o ./main.o   
+Finished building target: PWM.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S PWM.elf  >"PWM.lss"
+Finished building: PWM.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex PWM.elf  "PWM.hex"
+Finished building: PWM.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex PWM.elf  "PWM.eep"
+Finished building: PWM.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 PWM.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     182 bytes (0.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:48:08 Build Finished (took 546ms)
+

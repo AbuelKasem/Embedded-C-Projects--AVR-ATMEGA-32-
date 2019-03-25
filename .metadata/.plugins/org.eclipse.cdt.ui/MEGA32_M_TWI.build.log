@@ -1,0 +1,47 @@
+20:04:49 **** Build of configuration Release for project MEGA32_M_TWI ****
+make all 
+Building file: ../Main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"Main.d" -MT"Main.d" -c -o "Main.o" "../Main.c"
+Finished building: ../Main.c
+ 
+Building file: ../TWI.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"TWI.d" -MT"TWI.d" -c -o "TWI.o" "../TWI.c"
+Finished building: ../TWI.c
+ 
+Building target: MEGA32_M_TWI.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MEGA32_M_TWI.map -mmcu=atmega32 -o "MEGA32_M_TWI.elf"  ./Main.o ./TWI.o   
+Finished building target: MEGA32_M_TWI.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MEGA32_M_TWI.elf  >"MEGA32_M_TWI.lss"
+Finished building: MEGA32_M_TWI.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MEGA32_M_TWI.elf  "MEGA32_M_TWI.hex"
+Finished building: MEGA32_M_TWI.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex MEGA32_M_TWI.elf  "MEGA32_M_TWI.eep"
+Finished building: MEGA32_M_TWI.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 MEGA32_M_TWI.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     468 bytes (1.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:04:50 Build Finished (took 1s.140ms)
+

@@ -1,0 +1,25 @@
+00:15:34 **** Build of configuration Release for project serial_port ****
+make all 
+Building file: ../serialport.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"serialport.d" -MT"serialport.d" -c -o "serialport.o" "../serialport.c"
+Finished building: ../serialport.c
+ 
+Building file: ../uart.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"uart.d" -MT"uart.d" -c -o "uart.o" "../uart.c"
+Finished building: ../uart.c
+ 
+Building target: serial_port.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,serial_port.map -mmcu=atmega32 -o "serial_port.elf"  ./serialport.o ./uart.o   
+./uart.o: In function `put_uart_char':
+uart.c:(.text.put_uart_char+0x0): multiple definition of `put_uart_char'
+./serialport.o:serialport.c:(.text.put_uart_char+0x0): first defined here
+./uart.o: In function `uart_init':
+uart.c:(.text.uart_init+0x0): multiple definition of `uart_init'
+./serialport.o:serialport.c:(.text.uart_init+0x0): first defined here
+make: *** [serial_port.elf] Error 1
+
+00:15:34 Build Finished (took 441ms)
+

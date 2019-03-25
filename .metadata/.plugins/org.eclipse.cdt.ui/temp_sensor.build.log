@@ -1,0 +1,20 @@
+20:53:51 **** Incremental Build of configuration Release for project temp_sensor ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 temp_sensor.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     524 bytes (1.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:53:51 Build Finished (took 171ms)
+

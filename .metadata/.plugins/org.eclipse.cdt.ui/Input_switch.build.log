@@ -1,0 +1,20 @@
+16:03:47 **** Incremental Build of configuration Release for project Input_switch ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Input_switch.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     204 bytes (0.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:03:47 Build Finished (took 156ms)
+

@@ -1,0 +1,42 @@
+20:05:43 **** Incremental Build of configuration Release for project assignment1 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=16000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: assignment1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,assignment1.map -mmcu=atmega32 -o "assignment1.elf"  ./main.o   
+Finished building target: assignment1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S assignment1.elf  >"assignment1.lss"
+Finished building: assignment1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex assignment1.elf  "assignment1.hex"
+Finished building: assignment1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex assignment1.elf  "assignment1.eep"
+Finished building: assignment1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 assignment1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     194 bytes (0.6% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:05:43 Build Finished (took 485ms)
+

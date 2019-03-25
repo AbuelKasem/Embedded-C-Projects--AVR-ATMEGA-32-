@@ -1,0 +1,20 @@
+14:05:48 **** Incremental Build of configuration Release for project TEST ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TEST.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     242 bytes (0.7% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+14:05:48 Build Finished (took 502ms)
+
